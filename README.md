@@ -10,7 +10,7 @@ This project implements a secure user authentication backend using FastAPI, SQLA
 - CI/CD Automation: GitHub Actions workflow testing code on PR/push and publishing Docker images to Docker Hub.
 
 ## Docker Hub Repository
-- Image Repository: https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/fastapi_calculator
+- Image Repository: https://hub.docker.com/r/opspiano/fastapi_calculator
 
 ## Running Tests Locally
 
