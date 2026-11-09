@@ -40,7 +40,16 @@ def test_create_duplicate_user():
     assert response.json()["detail"] == "Username or email already registered"
 
 def test_get_user():
-    response = client.get("/users/1")
+    create_res = client.post(
+        "/users/",
+        json={
+            "username": "bob",
+            "email": "bob@example.com",
+            "password": "secretpassword"
+        }
+    )
+    user_id = create_res.json()["id"]
+    response = client.get(f"/users/{user_id}")
     assert response.status_code == 200
     data = response.json()
-    assert data["username"] == "alice"
+    assert data["username"] == "bob"
