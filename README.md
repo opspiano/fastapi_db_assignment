@@ -1,31 +1,21 @@
-# FastAPI Secure User Management & CI/CD Pipeline
+# FastAPI Calculator Project (Module 11)
 
-This project implements a secure user authentication backend using FastAPI, SQLAlchemy ORM, and Pydantic validation. The deployment and testing lifecycle is automated through GitHub Actions and Docker Hub.
+This repository contains my FastAPI project with User and Calculation models, Pydantic schemas, a simple Factory pattern, and automated tests using GitHub Actions.
 
-## Features
-- SQLAlchemy User Model: Persistent database model storing hashed passwords with unique constraints on username and email.
-- Pydantic Validation: Input data validation and serialization preventing invalid records from hitting the database.
-- Password Hashing: Bcrypt-based salting and hashing mechanisms.
-- Automated Testing: Pytest suite executing unit tests and database integration tests against a PostgreSQL container.
-- CI/CD Automation: GitHub Actions workflow testing code on PR/push and publishing Docker images to Docker Hub.
+## Docker Hub Link
 
-## Docker Hub Repository
-- Image Repository: https://hub.docker.com/r/opspiano/fastapi_calculator
+- https://hub.docker.com/r/opspiano/fastapi_calculator
 
-## Running Tests Locally
+## How to Run Tests Locally
 
-### Prerequisites
-- Python 3.10+
-- Running PostgreSQL database instance
+1. Start the PostgreSQL database:
 
-### Setup and Execution
-1. Create and activate a virtual environment:
-   python3 -m venv venv
-   source venv/bin/activate
+    docker-compose up -d db
 
-2. Install dependencies:
-   pip install -r requirements.txt
+2. Install required packages:
 
-3. Configure DATABASE_URL and run tests:
-   export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/fastapi_db"
-   pytest -v
+    pip install -r requirements.txt
+
+3. Run pytest:
+
+    DATABASE_URL=postgresql://user:password@localhost:5432/fastapi_db pytest -v
