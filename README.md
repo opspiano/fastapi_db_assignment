@@ -1,21 +1,25 @@
-# FastAPI Calculator Project (Module 11)
+# FastAPI Calculator Project (Module 12)
 
-This repository contains my FastAPI project with User and Calculation models, Pydantic schemas, a simple Factory pattern, and automated tests using GitHub Actions.
+FastAPI app with user register/login routes and calculation BREAD endpoints.
 
-## Docker Hub Link
+## Docker Hub
 
 - https://hub.docker.com/r/opspiano/fastapi_calculator
 
-## How to Run Tests Locally
+## Run Tests Locally
 
-1. Start the PostgreSQL database:
+1. Start PostgreSQL:
 
     docker-compose up -d db
 
-2. Install required packages:
-
-    pip install -r requirements.txt
-
-3. Run pytest:
+2. Run pytest:
 
     DATABASE_URL=postgresql://user:password@localhost:5432/fastapi_db pytest -v
+
+## Manual Check via OpenAPI
+
+1. Start server:
+
+    DATABASE_URL=postgresql://user:password@localhost:5432/fastapi_db uvicorn app.main:app --reload
+
+2. Open http://localhost:8000/docs in a browser and test the endpoints.

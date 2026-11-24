@@ -1,5 +1,5 @@
-# Module 11 Reflection
+# Module 12 Reflection
 
-In Module 11, I learned how to create a Calculation model in SQLAlchemy and connect it to the User model using a foreign key. I also practiced using Pydantic schemas (`CalculationCreate` and `CalculationRead`) to check user inputs, such as blocking division by zero and making sure only valid calculation types (`Add`, `Sub`, `Multiply`, `Divide`) are accepted. Using the Factory pattern also helped organize the different math operations without writing messy if-else statements everywhere.
+In Module 12, I connected my User and Calculation models to FastAPI routes for registration, login, and calculation BREAD operations. Using Pydantic schemas helped validate inputs and hide password hashes in responses.
 
-The hardest part for me was getting used to polymorphic models and making sure all the tests passed with PostgreSQL in GitHub Actions. At first, I got confused between SQLAlchemy database models and Pydantic schemas, and some database tests failed when duplicate test users were created. I fixed this by using unique test usernames and making sure the database tables were properly set up before running the tests. Overall, running automated tests and pushing the Docker image to Docker Hub helped me understand how testing and deployment work together.
+Testing the routes in /docs and writing integration tests in pytest helped me catch bugs early. At first, my tests failed because I checked for status code 200 instead of 201 on POST requests, and I also had to make sure the PUT route recalculated results while blocking division by zero. Fixing the status codes and validating updates with CalculationFactory solved these issues.
