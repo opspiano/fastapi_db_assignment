@@ -13,7 +13,7 @@ from app.models import (
     DivideCalculation,
 )
 from app.schemas import CalculationCreate, CalculationRead, CalculationType
-from app.security import get_password_hash
+from app.security import hash_password
 
 
 @pytest.fixture(autouse=True)
@@ -100,7 +100,7 @@ def test_db_insert_and_retrieve_calculation_with_user():
         user = User(
             username=f"calcuser_{unique_suffix}",
             email=f"calcuser_{unique_suffix}@example.com",
-            password_hash=get_password_hash("StrongPass123!"),
+            password_hash=hash_password("StrongPass123!"),
         )
         db.add(user)
         db.commit()
